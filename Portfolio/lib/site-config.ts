@@ -1,6 +1,6 @@
 const DEFAULT_SITE_URL = "https://harimilanarora.com";
-const DEFAULT_CONTACT_EMAIL = "hello@harimilanarora.com";
-const DEFAULT_AEAAS_URL = "https://example.com";
+const DEFAULT_CONTACT_EMAIL = "harimilanarora@gmail.com";
+const DEFAULT_AEAAS_URL = "https://aeaas-web.vercel.app/";
 
 function normalizeUrl(value: string | undefined, fallback: string) {
   if (!value) {
