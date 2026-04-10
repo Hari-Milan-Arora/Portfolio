@@ -1,12 +1,13 @@
+import { aeaasUrl, contactEmail, siteUrl } from "@/lib/site-config";
+
 export const siteConfig = {
   name: "Hari Milan Arora",
   title: "Hari Milan Arora | Systems Builder and AI-First Founder",
   description:
     "Founder-level portfolio for Hari Milan Arora. AI-first systems, product execution, and the venture-scale thesis behind AEAAS.",
-  // Replace these three fields when the live domain, preferred inbox, and AEAAS site are ready.
-  url: "https://harimilanarora.com",
-  email: "hello@harimilanarora.com",
-  aeaasUrl: "https://example.com",
+  url: siteUrl,
+  email: contactEmail,
+  aeaasUrl,
 };
 
 export const navigation = [
