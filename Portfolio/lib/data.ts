@@ -1,86 +1,200 @@
-import { aeaasUrl, contactEmail, siteUrl } from "@/lib/site-config";
+import {
+  contactEmail,
+  githubUrl,
+  linkedinUrl,
+  portfolioUrl,
+  resumePaths,
+  siteUrl,
+} from "@/lib/site-config";
 
 export const siteConfig = {
   name: "Hari Milan Arora",
-  title: "Hari Milan Arora | Systems Builder and AI-First Founder",
+  brand: "HMA // REDLINE",
+  title: "Hari Milan Arora | AI and Software Engineer",
   description:
-    "Founder-level portfolio for Hari Milan Arora. AI-first systems, product execution, and the venture-scale thesis behind AEAAS.",
+    "Portfolio of Hari Milan Arora, an AI and software engineer working across AI engineering, machine learning, multi-agent systems, and software development.",
   url: siteUrl,
   email: contactEmail,
-  aeaasUrl,
+  githubUrl,
+  linkedinUrl,
+  portfolioUrl,
+  resumePaths,
 };
 
 export const navigation = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
-  { href: "/aeaas", label: "AEAAS" },
+  { href: "/#experience", label: "Experience" },
+  { href: "/#skills", label: "Skills" },
   { href: "/contact", label: "Contact" },
 ];
 
+export const resumeOptions = [
+  {
+    href: resumePaths.softwareEngineering,
+    label: "Software Engineering",
+    shortLabel: "SDE",
+    description: "Backend systems, APIs, databases, and delivery.",
+  },
+  {
+    href: resumePaths.aiEngineering,
+    label: "AI Engineering",
+    shortLabel: "AI",
+    description: "LLM applications, machine learning, and agents.",
+  },
+] as const;
+
+export const experience = [
+  {
+    company: "Alobha Technologies Pvt. Ltd.",
+    role: "AI/ML Intern",
+    duration: "3 months",
+    stack: ["Python", "CrewAI", "scikit-learn", "NumPy", "Pandas"],
+    summary:
+      "Built practical machine-learning and multi-agent workflows across preprocessing, experimentation, retrieval, and LLM-enabled application paths.",
+    bullets: [
+      "Implemented Python ML workflows covering data preprocessing, model development, experimentation, and evaluation.",
+      "Built CrewAI agents and multi-agent workflows using task decomposition and role-based collaboration.",
+      "Developed a RAG pipeline and integrated retrieval and LLM calls into application workflows.",
+      "Used NumPy, Pandas, and scikit-learn for data processing and foundational regression and Random Forest experiments.",
+    ],
+  },
+] as const;
+
+export const education = [
+  {
+    qualification: "B.Tech — Computer Science Engineering (AI & ML)",
+    institution: "ABES Institute of Technology, Ghaziabad",
+    period: "2023 — 2027 expected",
+  },
+  {
+    qualification: "GNIIT — Software Engineering",
+    institution: "NIIT",
+    period: "Ongoing",
+  },
+] as const;
+
+export const skillGroups = [
+  {
+    label: "LLM & Agent Systems",
+    items: ["LangChain", "LangGraph", "CrewAI", "RAG", "Embeddings", "LLM API integration"],
+  },
+  {
+    label: "Machine Learning & NLP",
+    items: ["scikit-learn", "PyTorch", "Hugging Face Transformers", "DistilBERT", "Regression", "Random Forest"],
+  },
+  {
+    label: "Backend & APIs",
+    items: ["Python", "FastAPI", "Node.js", "Express", "REST APIs", "Async processing"],
+  },
+  {
+    label: "Data & Delivery",
+    items: ["PostgreSQL", "MySQL", "SQLite", "Redis", "Qdrant", "Docker", "Docker Compose", "Vercel"],
+  },
+  {
+    label: "Frontend & Languages",
+    items: ["TypeScript", "JavaScript", "React", "Next.js", "Tailwind CSS", "SQL"],
+  },
+] as const;
+
+export const heroTechnologies = [
+  { name: "Python", mark: "PY" },
+  { name: "TypeScript", mark: "TS" },
+  { name: "FastAPI", mark: "API" },
+  { name: "LangGraph", mark: "LG" },
+  { name: "React", mark: "RE" },
+  { name: "PostgreSQL", mark: "PG" },
+  { name: "Docker", mark: "DK" },
+  { name: "Google Gemini API", mark: "GM" },
+] as const;
+
+export const achievements = [
+  {
+    value: "B.Tech CSE (AI)",
+    label: "Education",
+    detail: "ABES Institute of Technology // CSE AI & ML",
+  },
+  {
+    value: "03",
+    label: "Projects",
+    detail: "Verified engineering systems in the archive",
+  },
+  {
+    value: "AI Systems",
+    label: "Systems focus",
+    detail: "Multi-agent // LLM applications // ML",
+  },
+  {
+    value: "SIH 2025",
+    label: "Hackathon",
+    detail: "Institute-level shortlist // eConsultation AI",
+  },
+] as const;
+
 export const currentFocus = [
   {
-    label: "Venture",
-    title: "AEAAS",
+    label: "AI Engineering",
+    title: "Deliberative systems",
     description:
-      "The main build: an AI-first operating layer designed to turn fragmented execution into scalable, compounding systems.",
+      "Building AI systems that reason through context, constraints, and next actions instead of treating every workflow as a prompt-response loop.",
   },
   {
-    label: "Infrastructure",
-    title: "Decision-grade AI products",
+    label: "Machine Learning",
+    title: "Useful intelligence",
     description:
-      "Products that reduce cognitive drag, surface better decisions faster, and behave like infrastructure rather than novelty.",
+      "Applying machine learning and language models to products where better interpretation, prioritization, or feedback improves the workflow.",
   },
   {
-    label: "Direction",
-    title: "Leverage that survives growth",
+    label: "Software Engineering",
+    title: "Systems that ship",
     description:
-      "Systems built for repeatability from day one, so scale strengthens the model instead of breaking it.",
+      "Turning product intent into maintainable software across interfaces, APIs, data flows, and the operational details between them.",
   },
 ];
 
 export const thinkingModels = [
   {
-    title: "Build leverage before scale.",
+    title: "Build from the decision backward.",
     description:
-      "Scaling an inefficient system just multiplies noise. The right sequence is clearer thinking, tighter infrastructure, then volume.",
+      "The useful question is not whether a model can produce an answer. It is whether the surrounding system helps someone make a better decision.",
   },
   {
-    title: "Products should make decisions easier.",
+    title: "Make intelligence inspectable.",
     description:
-      "The strongest products do more than automate tasks. They reduce ambiguity, compress decision cycles, and raise the quality of action.",
+      "Trust grows when a system exposes its inputs, constraints, reasoning signals, and points where a person remains in control.",
   },
   {
-    title: "Execution matters most when it compounds.",
+    title: "Ship the whole system.",
     description:
-      "Shipping fast is useful. Shipping something that gets stronger with each cycle is where durable advantage actually starts.",
+      "Strong engineering includes the interface, the API, the data path, the failure modes, and the experience of using the result.",
   },
 ];
 
 export const homeProof = [
   {
-    value: "2",
-    label: "AI systems in market-facing form",
+    value: "AI",
+    label: "Engineering focus",
     description:
-      "Both projects target real workflow bottlenecks and were designed as products, not portfolio filler.",
+      "Products shaped around machine intelligence, explicit constraints, and useful human outcomes.",
   },
   {
-    value: "1",
-    label: "Primary venture under active build",
+    value: "ML",
+    label: "Model-aware development",
     description:
-      "AEAAS acts as the strategic center of gravity, aligning current execution with a larger long-term platform.",
+      "Machine learning is treated as part of a product system, not as an isolated demo layer.",
   },
   {
-    value: "End-to-end",
-    label: "Ownership across the full stack",
+    value: "Agents",
+    label: "Multi-agent systems",
     description:
-      "Strategy, product framing, interface direction, and execution are treated as one continuous operating layer.",
+      "Exploring specialized agents, orchestration, planning, verification, and bounded action.",
   },
   {
-    value: "Compounding",
-    label: "Bias toward durable advantage",
+    value: "Full stack",
+    label: "Software delivery",
     description:
-      "The target is not one-time output. The target is systems that continue creating value after the initial build.",
+      "From product framing and interface direction through the implementation that makes the idea usable.",
   },
 ];
 
@@ -99,7 +213,7 @@ export const aboutSections = [
       {
         title: "Systems over isolated outputs",
         description:
-          "A product only becomes valuable when it can absorb complexity without becoming fragile. That means designing for repeatability from the start.",
+          "A product becomes valuable when it can absorb complexity without becoming fragile. That means designing for repeatability from the start.",
       },
       {
         title: "Clarity as a competitive edge",
@@ -109,48 +223,48 @@ export const aboutSections = [
     ],
   },
   {
-    eyebrow: "What I Optimize For",
-    title: "Leverage, speed to learning, and durable moats.",
+    eyebrow: "What I Build",
+    title: "AI systems with software underneath.",
     description:
-      "Effort matters. But effort without leverage does not scale. The operating priority is to build systems that improve the ratio between input and result.",
+      "My work sits across AI engineering, machine learning, multi-agent systems, and the software needed to make those systems useful.",
     points: [
       {
-        title: "Leverage",
+        title: "AI engineering",
         description:
-          "Every product decision is judged by whether it increases the amount of value created per unit of attention, time, or effort.",
+          "Designing model-aware workflows that connect interpretation, planning, verification, and action.",
       },
       {
-        title: "Learning velocity",
+        title: "Machine learning",
         description:
-          "Fast iteration only matters when it sharpens judgment. The goal is not activity. The goal is faster access to truth.",
+          "Using language, classification, summarization, and evaluation systems to turn complex inputs into useful signals.",
       },
       {
-        title: "Durability",
+        title: "Product software",
         description:
-          "Temporary spikes are easy to fake. Durable products come from decisions that continue paying off as complexity increases.",
+          "Building the interfaces, APIs, data flows, and feedback loops that allow intelligent features to work in practice.",
       },
     ],
   },
   {
-    eyebrow: "What I'm Building Toward",
-    title: "A venture that behaves like infrastructure.",
+    eyebrow: "How I Work",
+    title: "Precision before noise. Execution after clarity.",
     description:
-      "The long-term arc is not freelance work, job-seeking, or isolated shipping. It is the creation of a company with structural advantage.",
+      "The goal is a smaller distance between a well-framed problem and a reliable piece of software.",
     points: [
       {
-        title: "AI-native operating systems",
+        title: "Make the constraint visible",
         description:
-          "Products that remove operational drag and make high-quality execution accessible, consistent, and scalable.",
+          "A clear boundary is a design tool. It keeps intelligence, architecture, and scope pointed at the real problem.",
       },
       {
-        title: "A platform with asymmetric upside",
+        title: "Keep the human in the loop",
         description:
-          "The best venture paths are those where each layer makes the next one cheaper, faster, and harder to replicate.",
+          "Automation should clarify and accelerate action while preserving the moments that require judgment or confirmation.",
       },
       {
-        title: "AEAAS as the central vehicle",
+        title: "Measure what the user can feel",
         description:
-          "AEAAS is where the thesis becomes concrete: intelligence, automation, and system design turned into a venture-scale product direction.",
+          "The meaningful result is a workflow that becomes clearer, safer, or more useful—not a claim that cannot be verified.",
       },
     ],
   },
@@ -162,139 +276,196 @@ export type Project = {
   title: string;
   summary: string;
   positioning: string;
-  insight: string;
-  leverage: string;
-  outcome: string;
   tags: string[];
-  details: {
-    label: "Problem" | "Insight" | "Solution" | "Leverage" | "Outcome";
-    text: string;
-  }[];
+  techStack: string[];
+  capabilities: string[];
+  repository: string;
+  code: string;
+  visual: "sentinel" | "interview" | "consultation";
+  caseStudy: {
+    overview: string;
+    problem: string;
+    solution: string;
+    architecture: {
+      summary: string;
+      nodes: { label: string; detail: string }[];
+      flow: string[];
+    };
+    implementation: { title: string; text: string }[];
+    challenges: { title: string; text: string }[];
+    contribution: string;
+  };
 };
 
 export const projects: Project[] = [
   {
-    slug: "ai-board-meeting-slide-generator",
-    label: "Selected Work",
-    title: "AI Board Meeting Slide Generator",
+    slug: "sentinel-nova",
+    label: "Mission 01 / Verified repository",
+    title: "Sentinel Nova",
     summary:
-      "Board reporting is still slowed down by repetitive deck creation, fragmented inputs, and time lost translating business context into presentation-ready narratives.",
-    positioning:
-      "This system reframes board preparation as a structured intelligence workflow, where raw updates become board-ready communication without the usual manual drag.",
-    insight:
-      "Leaders should spend time deciding what matters, not rebuilding the same presentation mechanics every cycle.",
-    leverage:
-      "Once the workflow is systematized, each reporting cycle becomes faster, more consistent, and easier to scale across teams.",
-    outcome:
-      "The result is a clearer path from operational data to executive communication, with stronger consistency and less wasted effort every reporting cycle.",
-    tags: ["AI workflow", "Decision support", "Executive tooling"],
-    details: [
-      {
-        label: "Problem",
-        text: "Board meetings demand clarity and speed, but the path to a polished deck is usually manual, repetitive, and vulnerable to inconsistency.",
-      },
-      {
-        label: "Insight",
-        text: "The real problem is not slide design. It is the translation layer between scattered business inputs and the narrative required for executive decisions.",
-      },
-      {
-        label: "Solution",
-        text: "An AI-assisted system that structures raw updates, identifies the signal, and turns them into coherent slide content with board-level framing.",
-      },
-      {
-        label: "Leverage",
-        text: "The more often the system is used, the more reusable the reporting logic becomes. That turns a recurring bottleneck into repeatable infrastructure.",
-      },
-      {
-        label: "Outcome",
-        text: "Early execution signals point to tighter reporting cycles, less manual formatting overhead, and a more reliable standard for communicating decisions upward.",
-      },
+      "A deliberative AI Chief of Staff for task planning, prioritization, and human-confirmed actions.",
+    positioning: "Deliberative AI Chief of Staff.",
+    tags: ["AI engineering", "Multi-agent systems", "Planning"],
+    techStack: ["React 19", "TypeScript", "Node.js 22", "Express", "Tailwind CSS"],
+    capabilities: [
+      "Specialized agents for context inspection, prioritization, planning, memory, scheduling, and recovery.",
+      "Human-confirmed action proposals with a mandatory review gate.",
+      "SHA-256 parameter binding to detect changes between review and execution.",
+      "Read-only calendar availability inputs with bounded recovery cycles.",
     ],
+    repository: "https://github.com/Hari-Milan-Arora/Sentinel-Nova",
+    code: "SENTINEL / NOVA",
+    visual: "sentinel",
+    caseStudy: {
+      overview:
+        "Sentinel Nova is an actively developed AI Chief of Staff for task planning, prioritization, and human-confirmed actions. Its repository combines a React interface, a Node and Express runtime, specialized agents, deterministic planning layers, and explicit safety controls.",
+      problem:
+        "A useful assistant cannot safely jump from an ambiguous request to an external action. Context, priorities, schedules, memory, and action constraints need to be assembled before a proposal can be reviewed.",
+      solution:
+        "The system uses a deliberative runtime: specialized agents inspect context, prioritize work, plan schedules, retrieve scoped memory, recover from bounded failures, and pass proposals through a reviewer gate before human confirmation.",
+      architecture: {
+        summary:
+          "The verified repository separates the interaction layer, the Nova orchestration runtime, specialized agents, safety tooling, and persistent stores.",
+        nodes: [
+          { label: "Interface", detail: "React 19, TypeScript, Tailwind CSS SPA" },
+          { label: "Runtime", detail: "Node.js, Express, NovaOrchestrator" },
+          { label: "Agent layer", detail: "Context, prioritization, planning, memory, scheduling, recovery" },
+          { label: "Safety gate", detail: "ReviewerAgent, human confirmation, SHA-256 parameter binding" },
+          { label: "Stores", detail: "Tasks, goals, projects, memory, profiles, read-only calendar inputs" },
+        ],
+        flow: ["Request and context", "Deliberation and proposal", "Review and confirmation", "Bounded tool execution", "Persisted state and trace"],
+      },
+      implementation: [
+        { title: "Deterministic decision layers", text: "Prioritization and scheduling are implemented as explicit engines, with the repository documenting multi-factor scoring, availability constraints, and scheduling strategies alongside model-assisted explanations." },
+        { title: "Human-confirmed actions", text: "Action proposals pass through a ReviewerAgent gate. Canonical parameter hashes bind the reviewed proposal to execution and detect tampering or stale parameters." },
+        { title: "Bounded recovery", text: "RecoveryAgent and its supporting engine limit recovery cycles, preventing an unsuccessful action from becoming an unbounded retry loop." },
+      ],
+      challenges: [
+        { title: "Autonomy versus control", text: "The architecture keeps external action behind review and confirmation instead of allowing an unconstrained agent loop to mutate state." },
+        { title: "Context without leakage", text: "Memory retrieval is scoped and paired with PII and secret scrubbing paths in the repository’s memory services." },
+        { title: "Calendar safety", text: "Calendar data is treated as read-only availability input; task tools remain the action surface." },
+      ],
+      contribution:
+        "The public repository is published under Hari-Milan-Arora. This portfolio attributes the repository implementation to Hari Milan Arora; the source does not document a separate role split.",
+    },
+  },
+  {
+    slug: "ai-interview-employee",
+    label: "Mission 02 / Verified source",
+    title: "AI Interview Employee",
+    summary:
+      "A multi-agent hiring intelligence platform for resume screening, adaptive technical interviews, and structured evaluation.",
+    positioning: "Multi-agent hiring intelligence platform.",
+    tags: ["AI engineering", "Hiring intelligence", "LangGraph"],
+    techStack: [
+      "FastAPI",
+      "Python",
+      "PyTorch",
+      "LangGraph",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Qdrant",
+      "Redis",
+      "Docker",
+      "n8n",
+      "Ollama",
+    ],
+    capabilities: [
+      "Planner, Executor, and Reviewer agents orchestrated with LangGraph.",
+      "Resume screening and matching against job requirements.",
+      "Adaptive technical interviews with multi-dimensional answer evaluation.",
+      "ML-based hire prediction, bias detection, and evaluation consistency checks.",
+    ],
+    repository:
+      "https://github.com/Hari-Milan-Arora/AEaas/tree/main/ai-interview-employee",
+    code: "INTERVIEW / INTELLIGENCE",
+    visual: "interview",
+    caseStudy: {
+      overview:
+        "AI Interview Employee is a multi-agent hiring intelligence platform that combines adaptive interview workflows, machine-learning models, and an operational data layer.",
+      problem:
+        "The repository frames hiring as three connected problems: resume screening can be inconsistent, fixed interview flows do not adapt to responses, and evaluation needs structured checks for fairness and consistency.",
+      solution:
+        "A FastAPI service coordinates Planner, Executor, and Reviewer agents through LangGraph. The workflow connects resume matching, adaptive questions, multi-dimensional answer evaluation, hire prediction, bias checks, and automation hooks.",
+      architecture: {
+        summary:
+          "The project presentation documents a frontend/API/agent/ML/data layout, with Docker Compose services around the application and supporting infrastructure.",
+        nodes: [
+          { label: "Frontend", detail: "Next.js 14, TypeScript, Tailwind CSS, React Query" },
+          { label: "API", detail: "FastAPI, Python 3.11, Pydantic, auth and rate limiting" },
+          { label: "Agents", detail: "Planner, Executor, Reviewer via LangGraph" },
+          { label: "Models", detail: "PyTorch, Sentence-BERT, XGBoost, Llama3/Ollama" },
+          { label: "Data services", detail: "PostgreSQL, Qdrant vector search, Redis queue" },
+          { label: "Operations", detail: "Docker Compose, n8n automation, Prometheus metrics" },
+        ],
+        flow: ["Resume upload", "Match and qualify", "Adaptive interview", "Evaluate and predict", "Review bias and consistency", "Return decision and actions"],
+      },
+      implementation: [
+        { title: "LangGraph workflow", text: "The documented three-agent flow gives planning, execution, and review separate responsibilities, with the executor feeding answer context back into the interview sequence." },
+        { title: "Model-backed evaluation", text: "The project separates resume matching, answer evaluation, and hire prediction into distinct model responsibilities rather than treating the interview as one opaque prediction." },
+        { title: "Operational boundaries", text: "PostgreSQL, Qdrant, and Redis are documented as separate data services, while Docker Compose and n8n support local orchestration and post-interview automation." },
+      ],
+      challenges: [
+        { title: "Adaptive sequencing", text: "The interview loop must decide when to continue questioning and when to move to review, while preserving the candidate’s prior responses as context." },
+        { title: "Evaluation consistency", text: "The documented reviewer stage combines bias detection and consistency validation so a final recommendation is not based on a single unexamined score." },
+        { title: "Model and service coordination", text: "The system brings together API handling, agent state, model inference, vector search, queues, and local LLM configuration without collapsing those responsibilities into one layer." },
+      ],
+      contribution:
+        "The project directory is published inside the user-provided GitHub source under Hari-Milan-Arora. Detailed individual role allocation is not separately documented in the inspected project files.",
+    },
   },
   {
     slug: "econsultation-ai",
-    label: "Selected Work",
+    label: "Mission 03 / Verified repository",
     title: "eConsultation AI",
     summary:
-      "Consultation workflows often lose time to fragmented context, slow information gathering, and inconsistent preparation before a real recommendation can even begin.",
-    positioning:
-      "eConsultation AI treats prep work as an intelligence problem, compressing the time between initial case intake and useful clinical or operational direction.",
-    insight:
-      "When context arrives late or incomplete, expertise gets spent on reconstruction instead of decision quality.",
-    leverage:
-      "Better context packaging improves every downstream action, from faster recommendations to cleaner collaboration across stakeholders.",
-    outcome:
-      "The product shows how AI can remove administrative friction while protecting the core human value: better judgment applied at the right moment.",
-    tags: ["Health workflow", "AI assistance", "Operational efficiency"],
-    details: [
-      {
-        label: "Problem",
-        text: "Consultation processes are slowed down by scattered records, repeated intake work, and too much time spent reconstructing what should already be clear.",
-      },
-      {
-        label: "Insight",
-        text: "The highest-value experts should not be spending their attention assembling context. They should be using it to make better decisions.",
-      },
-      {
-        label: "Solution",
-        text: "An AI-assisted consultation layer that organizes relevant inputs, surfaces the important details, and prepares the case for faster downstream action.",
-      },
-      {
-        label: "Leverage",
-        text: "Once context is structured well, the same system improves speed, consistency, and handoff quality across the full consultation pipeline.",
-      },
-      {
-        label: "Outcome",
-        text: "The early signal is simple: less friction before the real work begins, and more of the workflow dedicated to judgment instead of reconstruction.",
-      },
+      "An AI-powered system for analyzing government consultation comments with sentiment analysis, summarization, and visualization.",
+    positioning: "Smart Comment Analysis System.",
+    tags: ["NLP", "Comment analysis", "Data visualization"],
+    techStack: ["Python 3.11", "FastAPI 0.104.1", "React 18.2.0", "Docker"],
+    capabilities: [
+      "Single-comment submission and CSV bulk upload workflows.",
+      "Sentiment labels, scores, stakeholder breakdowns, and trend views.",
+      "AI-assisted summaries for consultation comments.",
+      "Word-cloud and sentiment-specific visualization endpoints.",
     ],
+    repository: "https://github.com/Hari-Milan-Arora/eConsultation-AI",
+    code: "COMMENT / ANALYZE",
+    visual: "consultation",
+    caseStudy: {
+      overview:
+        "eConsultation AI is a Smart Comment Analysis System for government consultation feedback. Its public repository contains a React frontend, FastAPI backend, AI model utilities, SQLite persistence, visualization components, and Docker/deployment configuration.",
+      problem:
+        "Large sets of consultation comments are difficult to review consistently when sentiment, summaries, stakeholder context, and recurring topics must be assembled manually.",
+      solution:
+        "The system accepts individual comments or CSV uploads, processes them through sentiment and summarization paths, stores the results, and exposes dashboard, analytics, and word-cloud views for further inspection.",
+      architecture: {
+        summary:
+          "The repository documents a frontend-to-FastAPI flow backed by AI model utilities, SQLite data persistence, generated visualization assets, and monitoring helpers.",
+        nodes: [
+          { label: "Frontend", detail: "React 18, Tailwind CSS, Recharts, Lucide React" },
+          { label: "API", detail: "FastAPI on Uvicorn with async handlers and CORS" },
+          { label: "Analysis", detail: "Transformer sentiment, summarization, and fallback paths" },
+          { label: "Persistence", detail: "SQLite comments table, indexes, model/cache storage" },
+          { label: "Views", detail: "Dashboard, comment cards, analytics, and word clouds" },
+          { label: "Operations", detail: "Docker Compose, Nginx configuration, health and monitoring helpers" },
+        ],
+        flow: ["Comment or CSV input", "Validate and process", "Sentiment and summary", "Persist result", "Dashboard and visualization"],
+      },
+      implementation: [
+        { title: "Input paths", text: "The documented application supports single-comment submission and bulk CSV upload, with frontend components for upload, comment display, dashboard views, and word-cloud presentation." },
+        { title: "Model fallbacks", text: "The technical documentation describes transformer-backed sentiment and summarization alongside lighter fallback paths when the primary models are unavailable." },
+        { title: "Analysis surface", text: "The repository includes API endpoints and frontend components for sentiment-filtered word clouds, dashboard statistics, comment summaries, and stakeholder-oriented analytics." },
+      ],
+      challenges: [
+        { title: "Useful degradation", text: "The implementation documents fallback models and extractive processing so core analysis can remain available when heavier model paths are unavailable." },
+        { title: "Bulk input reliability", text: "CSV validation and bulk-processing paths must preserve comment structure while surfacing errors instead of silently dropping feedback." },
+        { title: "Model output to interface", text: "Sentiment labels, summaries, analytics, and generated word clouds need a shared data shape so the dashboard and individual comment views remain consistent." },
+      ],
+      contribution:
+        "The public repository is published under Hari-Milan-Arora. The inspected documentation does not provide a separate contribution breakdown beyond the repository attribution.",
+    },
   },
 ];
-
-export const aeaasPage = {
-  summary:
-    "AEAAS is the venture where product thinking, AI infrastructure, and leverage-focused execution converge into one operating thesis.",
-  pillars: [
-    {
-      title: "AI as infrastructure",
-      description:
-        "The goal is not novelty. The goal is to build systems that make intelligence available where execution usually breaks down.",
-    },
-    {
-      title: "Compounding workflows",
-      description:
-        "Each layer should reduce friction for the next. Better inputs lead to better decisions, which lead to better outputs, which strengthen the system over time.",
-    },
-    {
-      title: "Venture-scale intent",
-      description:
-        "AEAAS is designed as a long-term platform direction, not a short-term experiment. The ambition is structural advantage, not temporary attention.",
-    },
-  ],
-  outcomes: [
-    {
-      label: "01",
-      title: "Higher-quality execution at lower operating drag",
-      description:
-        "AEAAS aims to reduce the overhead that keeps capable teams from moving at the speed their decisions require.",
-    },
-    {
-      label: "02",
-      title: "Clearer decision pathways",
-      description:
-        "When intelligence is structured properly, action becomes faster, cleaner, and less dependent on heroic individual effort.",
-    },
-    {
-      label: "03",
-      title: "A stronger base for scale",
-      description:
-        "Scale stops being a source of chaos when the core system is designed to carry more load without multiplying complexity.",
-    },
-    {
-      label: "04",
-      title: "A foundation for durable company building",
-      description:
-        "The venture is built to support a broader company thesis: products that become part of how meaningful work gets done.",
-    },
-  ],
-};

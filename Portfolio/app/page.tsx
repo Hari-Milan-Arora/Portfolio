@@ -1,199 +1,80 @@
 import Link from "next/link";
-import { AeaasEnterButton } from "@/components/AeaasEnterButton";
+import { ExperienceSection } from "@/components/ExperienceSection";
 import { FadeIn } from "@/components/FadeIn";
 import { ProjectCard } from "@/components/ProjectCard";
-import { Section } from "@/components/Section";
-import {
-  currentFocus,
-  homeProof,
-  projects,
-  siteConfig,
-  thinkingModels,
-} from "@/lib/data";
+import { RedlineHero } from "@/components/RedlineHero";
+import { SkillsSection } from "@/components/SkillsSection";
+import { projects, siteConfig, thinkingModels } from "@/lib/data";
 
 export default function HomePage() {
   return (
-    <div className="container-shell space-y-24 pb-24 pt-10 md:space-y-32 md:pb-32 md:pt-16">
-      <section className="grid gap-10 pt-8 md:grid-cols-[minmax(0,1fr)_19rem] md:items-end md:gap-12 md:pt-16">
-        <FadeIn className="space-y-8">
-          <div className="space-y-6">
-            <span className="eyebrow">Hari Milan Arora</span>
-            <div className="space-y-5">
-              <h1 className="max-w-4xl text-balance text-5xl font-semibold leading-[0.92] text-white sm:text-6xl md:text-7xl">
-                I build systems that compound without me.
-              </h1>
-              <p className="max-w-2xl text-pretty text-base leading-7 text-slate-300 sm:text-lg">
-                AI-first products, strategic leverage, and venture-scale thinking.
-                The goal is not output for its own sake. The goal is durable
-                advantage.
-              </p>
-            </div>
-          </div>
+    <div className="home-page">
+      <RedlineHero />
+      <ExperienceSection />
 
-          <div className="flex flex-col gap-3 sm:flex-row">
-            <Link className="button-primary" href="/projects">
-              Explore Work
-            </Link>
-            <AeaasEnterButton
-              className="button-secondary"
-              href={siteConfig.aeaasUrl}
-              label="Enter AEAAS"
-            />
-          </div>
-
-          <div className="grid gap-3 pt-4 sm:grid-cols-3">
-            {[
-              "Products over projects",
-              "Leverage over labor",
-              "Systems over surface area",
-            ].map((item) => (
-              <div
-                className="panel rounded-2xl px-4 py-4 text-sm font-medium text-slate-200"
-                key={item}
-              >
-                {item}
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-
-        <FadeIn delay={0.1}>
-          <div className="panel-strong rounded-[1.75rem] p-6 md:p-7">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-sky-200/80">
-              Primary Focus
-            </p>
-            <div className="accent-line mt-5" />
-            <div className="mt-5 space-y-5">
-              <div>
-                <p className="text-sm text-slate-400">Main venture</p>
-                <p className="mt-1 text-2xl font-semibold text-white">AEAAS</p>
-              </div>
-              <div>
-                <p className="text-sm text-slate-400">Operating mode</p>
-                <p className="mt-1 text-base leading-7 text-slate-200">
-                  Build infrastructure that turns expertise into repeatable
-                  systems with asymmetrical payoff.
-                </p>
-              </div>
-              <div>
-                <p className="text-sm text-slate-400">Signal</p>
-                <p className="mt-1 text-base leading-7 text-slate-200">
-                  From problem framing to shipped interface, with product,
-                  strategy, and execution held in one stack.
-                </p>
-              </div>
-            </div>
-          </div>
-        </FadeIn>
-      </section>
-
-      <Section
-        description="Work in motion, chosen for strategic direction rather than volume."
-        eyebrow="What I'm Building"
-        title="A focused operating layer for leverage."
-      >
-        <div className="grid gap-4 lg:grid-cols-3">
-          {currentFocus.map((item, index) => (
-            <FadeIn className="h-full" delay={index * 0.08} key={item.title}>
-              <article className="panel card-hover h-full rounded-[1.75rem] p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-200/80">
-                  {item.label}
-                </p>
-                <h3 className="mt-5 text-2xl font-semibold text-white">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-pretty leading-7 text-slate-300">
-                  {item.description}
-                </p>
-              </article>
-            </FadeIn>
-          ))}
+      <section className="home-arsenal redline-section container-shell" id="arsenal" aria-labelledby="arsenal-title">
+        <div className="section-intro-line">
+          <span className="section-number">03</span>
+          <p className="hud-kicker">Project arsenal // verified</p>
         </div>
-      </Section>
-
-      <Section
-        description="Two products, both selected for what they reveal about judgment, speed, and leverage."
-        eyebrow="Selected Work"
-        title="High-signal systems, not a gallery of experiments."
-      >
-        <div className="grid gap-4 lg:grid-cols-2">
+        <div className="arsenal-heading-grid">
+          <div>
+            <h2 id="arsenal-title">Systems built for<br /><em>the real world.</em></h2>
+          </div>
+          <p>Three public repositories. Three different engineering problems. One consistent focus: making intelligent software useful, inspectable, and shippable.</p>
+        </div>
+        <div className="project-grid">
           {projects.map((project, index) => (
-            <FadeIn className="h-full" delay={index * 0.1} key={project.slug}>
+            <FadeIn className="h-full" delay={index * 0.08} key={project.slug}>
               <ProjectCard project={project} />
             </FadeIn>
           ))}
         </div>
-      </Section>
-
-      <Section
-        description="The models behind the products matter as much as the interfaces themselves."
-        eyebrow="Thinking"
-        title="Principles that survive contact with reality."
-      >
-        <div className="grid gap-4 lg:grid-cols-3">
-          {thinkingModels.map((model, index) => (
-            <FadeIn className="h-full" delay={index * 0.08} key={model.title}>
-              <article className="panel rounded-[1.6rem] p-6">
-                <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-200/80">
-                  0{index + 1}
-                </p>
-                <h3 className="mt-4 text-2xl font-semibold text-white">
-                  {model.title}
-                </h3>
-                <p className="mt-4 leading-7 text-slate-300">{model.description}</p>
-              </article>
-            </FadeIn>
-          ))}
+        <div className="arsenal-footer-line">
+          <span>03 / 03 approved projects</span>
+          <Link href="/projects">Open full mission archive <span aria-hidden="true">↗</span></Link>
         </div>
-      </Section>
+      </section>
 
-      <Section
-        description="Early traction signals and execution proof, framed around what compounds."
-        eyebrow="Proof of Execution"
-        title="Signals that the work is real."
-      >
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {homeProof.map((item, index) => (
-            <FadeIn className="h-full" delay={index * 0.07} key={item.label}>
-              <article className="panel rounded-[1.6rem] p-6">
-                <p className="text-3xl font-semibold text-white">{item.value}</p>
-                <p className="mt-3 text-sm font-semibold uppercase tracking-[0.16em] text-sky-200/80">
-                  {item.label}
-                </p>
-                <p className="mt-4 text-sm leading-6 text-slate-300">
-                  {item.description}
-                </p>
-              </article>
-            </FadeIn>
-          ))}
+      <SkillsSection />
+
+      <section className="home-about redline-section container-shell" id="about-preview" aria-labelledby="about-preview-title">
+        <div className="section-intro-line">
+          <span className="section-number">05</span>
+          <p className="hud-kicker">Operator profile // approach</p>
         </div>
-
-        <FadeIn delay={0.22}>
-          <div className="panel-strong mt-8 rounded-[1.8rem] px-6 py-7 md:px-8">
-            <div className="grid gap-4 md:grid-cols-[minmax(0,1fr)_auto] md:items-center">
-              <div>
-                <h3 className="text-2xl font-semibold text-white">
-                  Building toward the venture, not away from it.
-                </h3>
-                <p className="mt-3 max-w-2xl text-pretty leading-7 text-slate-300">
-                  Every project sharpens the same edge: clearer decisions, faster
-                  execution, and systems that carry more weight than manual effort
-                  ever could.
-                </p>
-              </div>
-              <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-                <Link className="button-primary" href="/about">
-                  Read the Thesis
-                </Link>
-                <Link className="button-secondary" href="/contact">
-                  Start a Conversation
-                </Link>
-              </div>
-            </div>
+        <div className="about-preview-grid">
+          <div className="about-preview-copy">
+            <h2 id="about-preview-title">Clarity first.<br /><em>Then execution.</em></h2>
+            <p>I am Hari Milan Arora, a computer science student focused on AI engineering, machine learning, and the software underneath intelligent products.</p>
+            <p>I care about the distance between a difficult problem and a reliable system: the decisions, constraints, interfaces, APIs, data paths, and failure modes that make the result work.</p>
+            <Link className="button-secondary" href="/about">Read the full profile <span aria-hidden="true">↗</span></Link>
           </div>
-        </FadeIn>
-      </Section>
+          <div className="principle-grid">
+            {thinkingModels.map((model, index) => (
+              <article className="principle-card" key={model.title}>
+                <span>0{index + 1}</span>
+                <h3>{model.title}</h3>
+                <p>{model.description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="home-contact redline-section container-shell" id="contact-preview" aria-labelledby="contact-preview-title">
+        <div className="contact-signal-card">
+          <div>
+            <p className="hud-kicker">06 / Open channel</p>
+            <h2 id="contact-preview-title">Have a hard problem<br /><em>worth solving?</em></h2>
+          </div>
+          <div className="contact-signal-actions">
+            <a className="button-primary" href={`mailto:${siteConfig.email}?subject=Building%20something%20meaningful`}>Start a conversation <span aria-hidden="true">↗</span></a>
+            <Link className="button-secondary" href="/contact">Contact details</Link>
+          </div>
+          <p className="contact-signal-email">{siteConfig.email}</p>
+        </div>
+      </section>
     </div>
   );
 }
-

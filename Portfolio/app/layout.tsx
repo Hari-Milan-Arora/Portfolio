@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Manrope, Space_Grotesk } from "next/font/google";
+import { Barlow_Condensed, Manrope, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
@@ -15,6 +15,12 @@ const displayFont = Space_Grotesk({
   variable: "--font-display",
 });
 
+const condensedFont = Barlow_Condensed({
+  subsets: ["latin"],
+  variable: "--font-display-condensed",
+  weight: ["500", "600", "700", "800"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -26,10 +32,11 @@ export const metadata: Metadata = {
   keywords: [
     "Hari Milan Arora",
     "AI builder",
-    "founder portfolio",
+    "software engineer portfolio",
     "systems thinker",
-    "AEAAS",
-    "product engineer",
+    "AI engineer",
+    "machine learning",
+    "multi-agent systems",
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
@@ -56,6 +63,11 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     images: ["/opengraph-image"],
   },
+  icons: {
+    icon: "/icon.svg",
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   alternates: {
     canonical: siteConfig.url,
   },
@@ -68,11 +80,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${bodyFont.variable} ${displayFont.variable}`}>
+      <body className={`${bodyFont.variable} ${displayFont.variable} ${condensedFont.variable}`}>
         <div className="page-shell">
           <div className="content-layer">
+            <a className="skip-link" href="#main-content">
+              Skip to main content
+            </a>
             <Navbar />
-            <main>{children}</main>
+            <main id="main-content">{children}</main>
             <Footer />
           </div>
         </div>
@@ -80,4 +95,3 @@ export default function RootLayout({
     </html>
   );
 }
-

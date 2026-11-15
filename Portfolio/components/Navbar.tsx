@@ -2,57 +2,111 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { navigation, siteConfig } from "@/lib/data";
+import { StatusIndicator } from "@/components/StatusIndicator";
+import { ResumeMenu } from "@/components/ResumeMenu";
 
 export function Navbar() {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeHash, setActiveHash] = useState("");
+
+  useEffect(() => {
+    const updateHash = () => setActiveHash(window.location.hash);
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setIsMenuOpen(false);
+      }
+    };
+
+    updateHash();
+    window.addEventListener("hashchange", updateHash);
+    window.addEventListener("keydown", handleEscape);
+    return () => {
+      window.removeEventListener("hashchange", updateHash);
+      window.removeEventListener("keydown", handleEscape);
+    };
+  }, []);
+
+  const renderNavigation = () =>
+    navigation.map((item) => {
+      const [itemPath, itemHash] = item.href.split("#");
+      const isActive = itemHash
+        ? pathname === itemPath && activeHash === `#${itemHash}`
+        : itemPath === "/"
+          ? pathname === itemPath && !activeHash
+          : pathname.startsWith(itemPath);
+
+      return (
+        <Link
+            aria-current={isActive ? "page" : undefined}
+          className="nav-link shrink-0"
+          data-active={isActive}
+          href={item.href}
+          key={item.href}
+          onClick={() => setIsMenuOpen(false)}
+        >
+          {item.label}
+        </Link>
+      );
+    });
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/6 bg-[rgba(5,8,22,0.72)] backdrop-blur-xl">
+    <header className="site-header">
       <div className="container-shell">
-        <div className="flex flex-col gap-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-          <Link className="group inline-flex items-center gap-3" href="/">
-            <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-sm font-semibold text-white">
+        <div className="flex min-h-[var(--header-height)] items-center justify-between gap-4">
+          <Link
+            aria-label={`${siteConfig.brand}, home`}
+            className="brand-lockup"
+            href="/"
+          >
+            <span aria-hidden="true" className="brand-mark">
               HMA
             </span>
             <span>
-              <span className="block text-sm font-semibold uppercase tracking-[0.2em] text-sky-200/85">
-                {siteConfig.name}
+              <span className="brand-wordmark">
+                HMA <span aria-hidden="true">{"//"}</span> REDLINE
               </span>
-              <span className="block text-sm text-slate-400">
-                Systems builder. AI-first operator.
-              </span>
+              <span className="brand-caption">AI + software engineer</span>
             </span>
           </Link>
 
-          <div className="flex items-center justify-between gap-4 sm:justify-end">
-            <nav className="flex flex-1 items-center gap-5 overflow-x-auto text-sm font-medium sm:flex-initial sm:gap-6">
-              {navigation.map((item) => {
-                const isActive =
-                  item.href === "/"
-                    ? pathname === item.href
-                    : pathname.startsWith(item.href);
-
-                return (
-                  <Link
-                    className="nav-link shrink-0 py-1"
-                    data-active={isActive}
-                    href={item.href}
-                    key={item.href}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
+          <div className="flex items-center gap-4">
+            <nav
+              aria-label="Primary navigation"
+              className="desktop-nav flex items-center gap-6"
+            >
+              {renderNavigation()}
             </nav>
 
-            <Link className="button-secondary hidden sm:inline-flex" href="/aeaas">
-              Enter AEAAS
-            </Link>
+            <StatusIndicator className="hidden xl:inline-flex">Signal active</StatusIndicator>
+            <div className="desktop-resume hidden md:block">
+              <ResumeMenu />
+            </div>
+            <button
+              aria-controls="mobile-navigation"
+              aria-expanded={isMenuOpen}
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              className="mobile-menu-button"
+              onClick={() => setIsMenuOpen((open) => !open)}
+              type="button"
+            >
+              <span aria-hidden="true" className="mobile-menu-icon" />
+            </button>
           </div>
         </div>
+
+        <nav
+          aria-label="Mobile primary navigation"
+          className="mobile-nav"
+          data-open={isMenuOpen}
+          id="mobile-navigation"
+        >
+          {renderNavigation()}
+          <ResumeMenu compact />
+        </nav>
       </div>
     </header>
   );
 }
-

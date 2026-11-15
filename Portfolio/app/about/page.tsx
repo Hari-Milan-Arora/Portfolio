@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { FadeIn } from "@/components/FadeIn";
 import { Section } from "@/components/Section";
-import { aboutSections } from "@/lib/data";
+import { aboutSections, siteConfig } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "How Hari Milan Arora thinks, what he optimizes for, and the long-term systems he is building toward.",
+    "How Hari Milan Arora thinks and approaches AI engineering, machine learning, and software development.",
+  alternates: { canonical: `${siteConfig.url}/about` },
 };
 
 export default function AboutPage() {
   return (
-    <div className="container-shell space-y-20 pb-24 pt-12 md:space-y-24 md:pb-32 md:pt-20">
+    <div className="route-page route-about container-shell space-y-20 pb-24 pt-12 md:space-y-24 md:pb-32 md:pt-20">
       <FadeIn>
         <section className="grid gap-8 md:grid-cols-[minmax(0,1fr)_17rem] md:items-end">
           <div className="space-y-6">
@@ -30,14 +31,14 @@ export default function AboutPage() {
           </div>
 
           <div className="panel rounded-[1.75rem] p-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-sky-200/80">
+            <p className="text-redline text-sm font-semibold uppercase tracking-[0.18em]">
               Orientation
             </p>
             <div className="mt-5 space-y-4 text-sm leading-6 text-slate-300">
               <p>Systems thinker</p>
-              <p>AI-first builder</p>
-              <p>Focused on leverage, not activity</p>
-              <p>Building toward a venture-scale platform</p>
+                <p>AI and software engineer</p>
+                <p>Focused on useful intelligence</p>
+                <p>Precision before noise</p>
             </div>
           </div>
         </section>
@@ -47,6 +48,7 @@ export default function AboutPage() {
         <Section
           description={section.description}
           eyebrow={section.eyebrow}
+          index={`0${sectionIndex + 1}`}
           key={section.title}
           title={section.title}
         >
@@ -88,8 +90,8 @@ export default function AboutPage() {
               <Link className="button-primary" href="/projects">
                 See the Work
               </Link>
-              <Link className="button-secondary" href="/aeaas">
-                View AEAAS
+              <Link className="button-secondary" href="/contact">
+                Start a Conversation
               </Link>
             </div>
           </div>
