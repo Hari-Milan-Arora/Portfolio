@@ -17,8 +17,9 @@ export default function OpenGraphImage() {
           width: "100%",
           height: "100%",
           background:
-            "radial-gradient(circle at top left, rgba(125,211,252,0.22), transparent 28%), linear-gradient(180deg, #050816 0%, #070d1a 100%)",
-          color: "#edf2ff",
+            "linear-gradient(rgba(232,232,232,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(232,232,232,0.035) 1px, transparent 1px), linear-gradient(135deg, #101114 0%, #0b0c0f 100%)",
+          backgroundSize: "56px 56px, 56px 56px, auto",
+          color: "#e8e8e8",
           padding: "72px",
           position: "relative",
           overflow: "hidden",
@@ -29,8 +30,8 @@ export default function OpenGraphImage() {
           style={{
             position: "absolute",
             inset: "32px",
-            border: "1px solid rgba(255,255,255,0.08)",
-            borderRadius: "32px",
+            border: "1px solid rgba(232,232,232,0.18)",
+            borderRadius: "4px",
           }}
         />
         <div
@@ -47,7 +48,7 @@ export default function OpenGraphImage() {
               display: "flex",
               alignItems: "center",
               gap: "18px",
-              color: "#7dd3fc",
+              color: "#ff4655",
               fontSize: 26,
               fontWeight: 700,
               letterSpacing: "0.22em",
@@ -59,10 +60,10 @@ export default function OpenGraphImage() {
                 width: "74px",
                 height: "1px",
                 background:
-                  "linear-gradient(90deg, rgba(125,211,252,0.95), transparent)",
+                  "linear-gradient(90deg, rgba(255,70,85,0.95), transparent)",
               }}
             />
-            {siteConfig.name}
+            {siteConfig.brand}
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "22px" }}>
@@ -80,12 +81,12 @@ export default function OpenGraphImage() {
             <div
               style={{
                 fontSize: 32,
-                color: "#c8d2f0",
+                color: "#b9bbc0",
                 maxWidth: 920,
                 lineHeight: 1.3,
               }}
             >
-              AI-first products, strategic leverage, and venture-scale thinking.
+              AI engineering, machine learning, and software systems.
             </div>
           </div>
         </div>
@@ -93,4 +94,3 @@ export default function OpenGraphImage() {
     ),
   );
 }
-

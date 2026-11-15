@@ -7,7 +7,12 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="panel card-hover group h-full rounded-[1.85rem] p-6 md:p-7">
+    <article className={`mission-card mission-card-${project.visual} panel card-hover group h-full rounded-[1.85rem] p-6 md:p-7`}>
+      <div className="mission-card-visual" aria-hidden="true">
+        <span className="mission-card-index">{project.label.split(" /")[0]}</span>
+        <span className="mission-card-code">{project.code}</span>
+        <strong>{project.visual === "sentinel" ? "SN" : project.visual === "interview" ? "IE" : "CA"}</strong>
+      </div>
       <div className="flex flex-wrap gap-3">
         {project.tags.map((tag) => (
           <span
@@ -26,28 +31,27 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="mt-8 grid gap-4 border-t border-white/8 pt-6 text-sm leading-6 text-slate-300">
         <div>
-          <p className="font-semibold uppercase tracking-[0.14em] text-sky-200/80">
-            Insight
+          <p className="text-redline font-semibold uppercase tracking-[0.14em]">
+            Verified stack
           </p>
-          <p className="mt-2">{project.insight}</p>
+          <p className="mt-2">{project.techStack.join(" / ")}</p>
         </div>
         <div>
-          <p className="font-semibold uppercase tracking-[0.14em] text-sky-200/80">
-            Leverage
+          <p className="text-redline font-semibold uppercase tracking-[0.14em]">
+            Signal
           </p>
-          <p className="mt-2">{project.leverage}</p>
+          <p className="mt-2">{project.capabilities[0]}</p>
         </div>
       </div>
 
-      <Link
-        className="mt-8 inline-flex items-center gap-2 text-sm font-semibold text-white"
-        href={`/projects#${project.slug}`}
-      >
-        View full breakdown
-        <span className="inline-block transition-transform duration-200 group-hover:translate-x-1">
-          {"->"}
-        </span>
-      </Link>
+      <div className="mt-8 flex flex-wrap gap-3">
+        <a className="button-primary" href={project.repository} target="_blank" rel="noopener noreferrer">
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+        <Link className="button-secondary" href={`/projects/${project.slug}`}>
+          Case study <span aria-hidden="true">↗</span>
+        </Link>
+      </div>
     </article>
   );
 }

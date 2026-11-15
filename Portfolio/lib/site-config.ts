@@ -1,6 +1,8 @@
 const DEFAULT_SITE_URL = "https://harimilanarora.com";
 const DEFAULT_CONTACT_EMAIL = "harimilanarora@gmail.com";
-const DEFAULT_AEAAS_URL = "https://aeaas-web.vercel.app/";
+const GITHUB_URL = "https://github.com/Hari-Milan-Arora";
+const LINKEDIN_URL = "https://www.linkedin.com/in/hari-milan-arora/";
+const PORTFOLIO_URL = "https://hellohari.vercel.app";
 
 function normalizeUrl(value: string | undefined, fallback: string) {
   if (!value) {
@@ -27,7 +29,11 @@ export const siteUrl = normalizeUrl(
 export const contactEmail =
   process.env.NEXT_PUBLIC_CONTACT_EMAIL?.trim() || DEFAULT_CONTACT_EMAIL;
 
-export const aeaasUrl = normalizeUrl(
-  process.env.NEXT_PUBLIC_AEAAS_URL,
-  DEFAULT_AEAAS_URL,
-);
+export const githubUrl = GITHUB_URL;
+export const linkedinUrl = LINKEDIN_URL;
+export const portfolioUrl = PORTFOLIO_URL;
+
+export const resumePaths = {
+  softwareEngineering: "/resumes/Hari-Milan-Arora-Software-Engineering-Resume.pdf",
+  aiEngineering: "/resumes/Hari-Milan-Arora-AI-Engineering-Resume.pdf",
+} as const;
