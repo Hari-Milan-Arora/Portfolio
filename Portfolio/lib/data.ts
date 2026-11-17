@@ -48,8 +48,8 @@ export const resumeOptions = [
 export const experience = [
   {
     company: "Alobha Technologies Pvt. Ltd.",
-    role: "AI/ML Intern",
-    duration: "3 months",
+    role: "AI System Development & LLM Intern",
+    duration: "Jun — Sep 2026",
     stack: ["Python", "CrewAI", "scikit-learn", "NumPy", "Pandas"],
     summary:
       "Built practical machine-learning and multi-agent workflows across preprocessing, experimentation, retrieval, and LLM-enabled application paths.",
@@ -59,6 +59,7 @@ export const experience = [
       "Developed a RAG pipeline and integrated retrieval and LLM calls into application workflows.",
       "Used NumPy, Pandas, and scikit-learn for data processing and foundational regression and Random Forest experiments.",
     ],
+    certificate: "/certificates/Hari-Intership-Certificate-Alobha-Technologies.pdf",
   },
 ] as const;
 

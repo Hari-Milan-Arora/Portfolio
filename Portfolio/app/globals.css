@@ -1868,6 +1868,7 @@ body::before {
 .experience-stack { display: flex; flex-wrap: wrap; align-content: start; gap: 0.45rem; }
 .experience-stack .hud-kicker { flex: 0 0 100%; margin-bottom: 0.2rem; }
 .experience-stack > span:not(.hud-kicker) { border: 1px solid var(--redline-line); padding: 0.45rem 0.5rem; color: #b9bdc4; font: 0.62rem/1.2 var(--font-display), monospace; }
+.experience-certificate { display: inline-flex; align-items: center; gap: 0.35rem; margin-top: 1.3rem; color: var(--redline-red); font: 0.68rem/1.4 var(--redline-condensed); letter-spacing: 0.12em; text-transform: uppercase; border-bottom: 1px solid var(--redline-red); }
 .education-row { display: grid; grid-template-columns: minmax(9rem, 0.35fr) minmax(0, 1fr); gap: 2rem; margin-top: 2rem; padding-top: 1.5rem; }
 .education-items { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .education-item { display: grid; gap: 0.4rem; border-left: 1px solid var(--redline-red); padding-left: 0.9rem; }

@@ -1,0 +1,18 @@
+# Build output
+.next/
+
+# Tooling / session artifacts
+.opencode/
+memory/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db

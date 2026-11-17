@@ -30,6 +30,16 @@ export function ExperienceSection() {
               <ul>
                 {role.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}
               </ul>
+              {role.certificate ? (
+                <a
+                  className="experience-certificate"
+                  href={role.certificate}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  View internship certificate <span aria-hidden="true">↗</span>
+                </a>
+              ) : null}
             </div>
             <div className="experience-stack">
               <span className="hud-kicker">Stack</span>
