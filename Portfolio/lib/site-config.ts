@@ -34,6 +34,7 @@ export const linkedinUrl = LINKEDIN_URL;
 export const portfolioUrl = PORTFOLIO_URL;
 
 export const resumePaths = {
-  softwareEngineering: "/resumes/Hari-Milan-Arora-Software-Engineering-Resume.pdf",
-  aiEngineering: "/resumes/Hari-Milan-Arora-AI-Engineering-Resume.pdf",
+  softwareEngineering: "/resumes/Hari-Milan-Arora-Software-Engineer-Resume.pdf",
+  aiEngineering: "/resumes/Hari-Milan-Arora-AI-ML-Engineer-Resume.pdf",
+  forwardDeployed: "/resumes/Hari-Milan-Arora-Forward-Deployed-Engineer-Resume.pdf",
 } as const;

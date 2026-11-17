@@ -39,9 +39,15 @@ export const resumeOptions = [
   },
   {
     href: resumePaths.aiEngineering,
-    label: "AI Engineering",
-    shortLabel: "AI",
+    label: "AI / ML Engineering",
+    shortLabel: "AI/ML",
     description: "LLM applications, machine learning, and agents.",
+  },
+  {
+    href: resumePaths.forwardDeployed,
+    label: "Forward Deployed Engineering",
+    shortLabel: "FDE",
+    description: "Cloud AI, multi-agent systems, and production deployment.",
   },
 ] as const;
 
